@@ -23,8 +23,8 @@ public class CChallengerView extends javax.swing.JPanel {
     public CChallengerView(JPanel inPane) {
         initComponents();
         this.rightPanel=inPane;
-        ImageIcon logOutIcon = new ImageIcon("./Images/logoutIcon.jpg");
-        logOut.setIcon(logOutIcon);
+       // ImageIcon logOutIcon = new ImageIcon("./Images/logoutIcon.jpg");
+        //logOut.setIcon(logOutIcon);
     }
     
     

@@ -1,6 +1,9 @@
-
 package ui;
 
+
+
+import java.awt.*;
+import java.io.FileNotFoundException;
 import java.awt.CardLayout;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -19,8 +22,10 @@ import java.util.Base64;
 import oracle.jdbc.*;
 import oracle.jdbc.pool.OracleDataSource;
 import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import javax.imageio.stream.ImageOutputStream;
+import javax.swing.text.Document;
 
 public class FormPanel extends javax.swing.JPanel {
 private JPanel rightPanel;
@@ -41,6 +46,8 @@ private JPanel rightPanel;
     private static String sptype;
     private static String smsg;
     private static Icon proImg;
+    private static String pwd;
+    private static String cpwd;
     
    
     @SuppressWarnings("unchecked")
@@ -68,26 +75,29 @@ private JPanel rightPanel;
         notSayRadio = new javax.swing.JRadioButton();
         emailTextField = new javax.swing.JTextField();
         emailInvalid = new javax.swing.JLabel();
-        patientComboBox = new javax.swing.JComboBox<>();
+        countryComboBox = new javax.swing.JComboBox<>();
         patientInvalid = new javax.swing.JLabel();
-        messageBox = new javax.swing.JScrollPane();
-        messageTextArea = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
         photoLabel = new javax.swing.JLabel();
         submitButton = new javax.swing.JButton();
         genderInvalid = new javax.swing.JLabel();
-        msgInvalid = new javax.swing.JLabel();
+        phoneInvalid = new javax.swing.JLabel();
         picLabel = new javax.swing.JLabel();
         imgButton = new javax.swing.JButton();
         dobLabel = new javax.swing.JLabel();
         dobInvalid = new javax.swing.JLabel();
         dateField = new com.toedter.calendar.JDateChooser();
+        pwdLabel = new javax.swing.JLabel();
+        pwdTextField = new javax.swing.JTextField();
+        phoneTextField = new javax.swing.JTextField();
+        cpwdLabel = new javax.swing.JLabel();
+        cpwdTextField = new javax.swing.JTextField();
+        pwdInvalid = new javax.swing.JLabel();
 
         bgLabel.setBackground(new java.awt.Color(204, 204, 255));
 
         titleLabel.setBackground(new java.awt.Color(204, 204, 255));
         titleLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        titleLabel.setText("Customer Registration Form");
+        titleLabel.setText("Challenger Registration Form");
 
         fNameLabel.setText("First Name:");
 
@@ -99,9 +109,9 @@ private JPanel rightPanel;
 
         emailLabel.setText("E-mail:");
 
-        countryLabel.setText("Patient Type:");
+        countryLabel.setText("Country:");
 
-        messageLabel.setText("Message:");
+        messageLabel.setText("Phone Number:");
 
         fNameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -163,43 +173,26 @@ private JPanel rightPanel;
         emailInvalid.setFont(new java.awt.Font("Helvetica Neue", 1, 10)); // NOI18N
         emailInvalid.setForeground(new java.awt.Color(255, 0, 51));
 
-        patientComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "In-Patient", "Out Patient", "New Patient" }));
-        patientComboBox.setSelectedIndex(-1);
-        patientComboBox.addFocusListener(new java.awt.event.FocusAdapter() {
+        countryComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Canada", "China", "India", "UK", "USA" }));
+        countryComboBox.setSelectedIndex(-1);
+        countryComboBox.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                patientComboBoxFocusLost(evt);
+                countryComboBoxFocusLost(evt);
             }
         });
-        patientComboBox.addActionListener(new java.awt.event.ActionListener() {
+        countryComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                patientComboBoxActionPerformed(evt);
+                countryComboBoxActionPerformed(evt);
             }
         });
-        patientComboBox.addKeyListener(new java.awt.event.KeyAdapter() {
+        countryComboBox.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                patientComboBoxKeyReleased(evt);
+                countryComboBoxKeyReleased(evt);
             }
         });
 
         patientInvalid.setFont(new java.awt.Font("Helvetica Neue", 1, 10)); // NOI18N
         patientInvalid.setForeground(new java.awt.Color(255, 0, 51));
-
-        messageTextArea.setColumns(20);
-        messageTextArea.setRows(5);
-        messageTextArea.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                messageTextAreaFocusGained(evt);
-            }
-        });
-        messageTextArea.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                messageTextAreaKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                messageTextAreaKeyTyped(evt);
-            }
-        });
-        messageBox.setViewportView(messageTextArea);
 
         photoLabel.setText("Please upload Photo");
 
@@ -213,8 +206,8 @@ private JPanel rightPanel;
         genderInvalid.setFont(new java.awt.Font("Helvetica Neue", 1, 10)); // NOI18N
         genderInvalid.setForeground(new java.awt.Color(255, 0, 51));
 
-        msgInvalid.setFont(new java.awt.Font("Helvetica Neue", 1, 10)); // NOI18N
-        msgInvalid.setForeground(new java.awt.Color(255, 0, 51));
+        phoneInvalid.setFont(new java.awt.Font("Helvetica Neue", 1, 10)); // NOI18N
+        phoneInvalid.setForeground(new java.awt.Color(255, 0, 51));
 
         picLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -228,6 +221,33 @@ private JPanel rightPanel;
         dobLabel.setText("Date Of Birth:");
 
         dobInvalid.setForeground(new java.awt.Color(255, 0, 51));
+
+        pwdLabel.setText("Set Password:");
+
+        pwdTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pwdTextFieldActionPerformed(evt);
+            }
+        });
+
+        phoneTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phoneTextFieldActionPerformed(evt);
+            }
+        });
+
+        cpwdLabel.setText("Confirm Password");
+
+        cpwdTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpwdTextFieldActionPerformed(evt);
+            }
+        });
+        cpwdTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cpwdTextFieldKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout bgLabelLayout = new javax.swing.GroupLayout(bgLabel);
         bgLabel.setLayout(bgLabelLayout);
@@ -246,65 +266,76 @@ private JPanel rightPanel;
                             .addComponent(countryLabel)
                             .addComponent(messageLabel)
                             .addComponent(photoLabel)
-                            .addComponent(dobLabel))
+                            .addComponent(dobLabel)
+                            .addComponent(pwdLabel)
+                            .addComponent(cpwdLabel))
                         .addGap(115, 115, 115)
                         .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(bgLabelLayout.createSequentialGroup()
-                                    .addComponent(patientComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(patientInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel1))
-                                .addGroup(bgLabelLayout.createSequentialGroup()
-                                    .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(lNameTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
-                                        .addComponent(fNameTextField, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(fNameInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lNameInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(bgLabelLayout.createSequentialGroup()
-                                    .addComponent(ageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(ageInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(bgLabelLayout.createSequentialGroup()
-                                    .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(bgLabelLayout.createSequentialGroup()
-                                            .addGap(6, 6, 6)
-                                            .addComponent(emailTextField))
-                                        .addComponent(messageBox))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(emailInvalid, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
-                                        .addComponent(msgInvalid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGroup(bgLabelLayout.createSequentialGroup()
-                                    .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(dateField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, bgLabelLayout.createSequentialGroup()
-                                            .addComponent(femaleRadio)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(maleRadio)))
-                                    .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(bgLabelLayout.createSequentialGroup()
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(notSayRadio)
-                                            .addGap(38, 38, 38)
-                                            .addComponent(genderInvalid, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLabelLayout.createSequentialGroup()
-                                            .addGap(71, 71, 71)
-                                            .addComponent(dobInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(bgLabelLayout.createSequentialGroup()
-                                .addComponent(picLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(imgButton))))
+                                .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(dateField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, bgLabelLayout.createSequentialGroup()
+                                        .addComponent(femaleRadio)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(maleRadio)))
+                                .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(bgLabelLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(notSayRadio)
+                                        .addGap(38, 38, 38)
+                                        .addComponent(genderInvalid, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLabelLayout.createSequentialGroup()
+                                        .addGap(71, 71, 71)
+                                        .addComponent(dobInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(bgLabelLayout.createSequentialGroup()
+                                .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(bgLabelLayout.createSequentialGroup()
+                                        .addComponent(picLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(44, 44, 44)
+                                        .addComponent(imgButton))
+                                    .addComponent(phoneTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(emailTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(bgLabelLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(emailInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(bgLabelLayout.createSequentialGroup()
+                                        .addGap(17, 17, 17)
+                                        .addComponent(phoneInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addGroup(bgLabelLayout.createSequentialGroup()
+                                .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(bgLabelLayout.createSequentialGroup()
+                                        .addComponent(countryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(patientInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(bgLabelLayout.createSequentialGroup()
+                                        .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(lNameTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
+                                            .addComponent(fNameTextField, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(fNameInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lNameInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(bgLabelLayout.createSequentialGroup()
+                                        .addComponent(ageTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(ageInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(bgLabelLayout.createSequentialGroup()
+                                .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(cpwdTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                                    .addComponent(pwdTextField, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(30, 30, 30)
+                                .addComponent(pwdInvalid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(bgLabelLayout.createSequentialGroup()
                         .addGap(260, 260, 260)
-                        .addComponent(titleLabel))
-                    .addGroup(bgLabelLayout.createSequentialGroup()
-                        .addGap(291, 291, 291)
-                        .addComponent(submitButton)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                        .addComponent(titleLabel)))
+                .addGap(44, 44, 44))
+            .addGroup(bgLabelLayout.createSequentialGroup()
+                .addGap(154, 154, 154)
+                .addComponent(submitButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         bgLabelLayout.setVerticalGroup(
             bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -335,55 +366,59 @@ private JPanel rightPanel;
                     .addComponent(dateField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLabelLayout.createSequentialGroup()
+                    .addGroup(bgLabelLayout.createSequentialGroup()
                         .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(genderLabel)
                             .addComponent(femaleRadio)
                             .addComponent(maleRadio)
                             .addComponent(notSayRadio))
-                        .addGap(23, 23, 23)
-                        .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(emailLabel)
-                            .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(29, 29, 29))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLabelLayout.createSequentialGroup()
                         .addComponent(genderInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23)
-                        .addComponent(emailInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(36, 36, 36)
+                        .addGap(27, 27, 27)))
+                .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(emailInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(emailLabel)))
+                .addGap(19, 19, Short.MAX_VALUE)
                 .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(patientInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(countryLabel)
-                        .addComponent(patientComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1))
+                    .addComponent(countryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(countryLabel, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(28, 28, 28)
                 .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(bgLabelLayout.createSequentialGroup()
-                        .addComponent(msgInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(bgLabelLayout.createSequentialGroup()
-                        .addComponent(messageBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(picLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(bgLabelLayout.createSequentialGroup()
-                                .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(photoLabel)
-                                    .addComponent(imgButton))
-                                .addGap(0, 22, Short.MAX_VALUE)))
-                        .addGap(12, 12, 12)
-                        .addComponent(submitButton)
-                        .addGap(21, 21, 21))
-                    .addGroup(bgLabelLayout.createSequentialGroup()
                         .addComponent(messageLabel)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(32, 32, 32)
+                        .addComponent(photoLabel))
+                    .addGroup(bgLabelLayout.createSequentialGroup()
+                        .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(phoneTextField)
+                            .addComponent(phoneInvalid, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(26, 26, 26)
+                        .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(picLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(imgButton))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pwdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pwdLabel))
+                .addGap(24, 24, 24)
+                .addGroup(bgLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cpwdLabel)
+                    .addComponent(cpwdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pwdInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addComponent(submitButton)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(bgLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -392,8 +427,8 @@ private JPanel rightPanel;
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(bgLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(bgLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(11, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -505,8 +540,8 @@ private JPanel rightPanel;
         }
     }//GEN-LAST:event_emailTextFieldKeyTyped
 
-    private void patientComboBoxFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_patientComboBoxFocusLost
-        int scntryflg = patientComboBox.getSelectedIndex();
+    private void countryComboBoxFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_countryComboBoxFocusLost
+        int scntryflg = countryComboBox.getSelectedIndex();
         if(scntryflg!=-1)
         {
             patientInvalid.setVisible(false);
@@ -517,58 +552,20 @@ private JPanel rightPanel;
             patientInvalid.setVisible(true);
         }
         checkinputs();
-    }//GEN-LAST:event_patientComboBoxFocusLost
+    }//GEN-LAST:event_countryComboBoxFocusLost
 
-    private void patientComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientComboBoxActionPerformed
+    private void countryComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countryComboBoxActionPerformed
         checkinputs();
-    }//GEN-LAST:event_patientComboBoxActionPerformed
+    }//GEN-LAST:event_countryComboBoxActionPerformed
 
-    private void patientComboBoxKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_patientComboBoxKeyReleased
-         sptype= (String) patientComboBox.getSelectedItem();
+    private void countryComboBoxKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_countryComboBoxKeyReleased
+         sptype= (String) countryComboBox.getSelectedItem();
         checkinputs();
-    }//GEN-LAST:event_patientComboBoxKeyReleased
-
-    private void messageTextAreaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_messageTextAreaFocusGained
-        int scntryflg = patientComboBox.getSelectedIndex();
-        if(scntryflg!=-1)
-        {
-            patientInvalid.setVisible(false);
-            String msg= messageTextArea.getText();
-            if(msg.isBlank()){
-                msgInvalid.setText("Please type the message");
-                msgInvalid.setVisible(true);
-            }
-            else{
-                msgInvalid.setVisible(false);
-            }
-
-        }
-        else
-        {
-            patientInvalid.setText("Please choose one");
-            patientInvalid.setVisible(true);
-        }
-    }//GEN-LAST:event_messageTextAreaFocusGained
-
-    private void messageTextAreaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_messageTextAreaKeyReleased
-        checkinputs();
-    }//GEN-LAST:event_messageTextAreaKeyReleased
-
-    private void messageTextAreaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_messageTextAreaKeyTyped
-          smsg= messageTextArea.getText();
-        if(smsg.isBlank()){
-            msgInvalid.setText("Please type the message");
-            msgInvalid.setVisible(true);
-        }
-        else{
-            msgInvalid.setVisible(false);
-        }
-    }//GEN-LAST:event_messageTextAreaKeyTyped
+    }//GEN-LAST:event_countryComboBoxKeyReleased
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
       
         checkinputs();
-        JOptionPane.showMessageDialog(null, "Submitted Successfully");
         
         UserPanel newUserPanel= new UserPanel();
         newUserPanel.setFirstName(fNameTextField.getText());
@@ -577,13 +574,14 @@ private JPanel rightPanel;
         newUserPanel.setDOB(dateField.getDate());
         newUserPanel.setGender(getSelectedButtonText(buttonGroup1));
         newUserPanel.setEmail(emailTextField.getText());
-        newUserPanel.setPatientType((String) patientComboBox.getSelectedItem());
-        newUserPanel.setMsg(messageTextArea.getText());
+        newUserPanel.setPatientType((String) countryComboBox.getSelectedItem());
+        newUserPanel.setPh(phoneTextField.getText());
         newUserPanel.setPic(picLabel.getIcon());
+        newUserPanel.setPwd(pwdTextField.getText());
         
         String ImgIconStr = convertIconToString(picLabel.getIcon());
         
-       String query = "INSERT INTO REGISTEREDPATIENTS(FIRST,LAST,AGE,DOB,GENDER,EMAILID,PATIENTTYPE,MESSAGE,PHOTO) VALUES(?,?,?,?,?,?,?,?,?)";
+       String query = "INSERT INTO CHALLENGERS(FIRST,LAST,AGE,DOB,GENDER,EMAILID,COUNTRY,PHONE,PHOTO,PASSWORD) VALUES(?,?,?,?,?,?,?,?,?,?)";
         try (Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@0.0.0.0:1521:xe", "admin","admin")) {
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setString(1, fNameTextField.getText());
@@ -592,9 +590,10 @@ private JPanel rightPanel;
             stmt.setString(4,  dateField.getDate().toString());
             stmt.setString(5, getSelectedButtonText(buttonGroup1));
             stmt.setString(6, emailTextField.getText());
-            stmt.setString(7, (String) patientComboBox.getSelectedItem());
-            stmt.setString(8, messageTextArea.getText());
+            stmt.setString(7, (String) countryComboBox.getSelectedItem());
+            stmt.setString(8, phoneTextField.getText());
             stmt.setString(9,ImgIconStr);
+            stmt.setString(10,cpwdTextField.getText());
             int rows = stmt.executeUpdate();
              conn.close();
         } catch (SQLException e) {
@@ -603,6 +602,56 @@ private JPanel rightPanel;
         
         JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
         topFrame.setUserPanel(newUserPanel);
+        
+       
+        int decision=JOptionPane.showConfirmDialog(null, "Would you like to download a copy?",
+                "Submitted Successfully!", JOptionPane.YES_NO_OPTION);
+        if (decision == JOptionPane.YES_OPTION) 
+        {
+       ViewPanel printPanel= new ViewPanel(newUserPanel);
+       /*Document document = new Document() {};
+        try {
+            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("/Users/sujiitramurukeshan/Desktop/ChallengeForm.pdf"));
+            document.open();
+            PdfContentByte contentByte = writer.getDirectContent();
+            PdfTemplate template = contentByte.createTemplate(500, 500);
+            Graphics2D g2 = template.createGraphics(500, 500);
+            printPanel.print(g2);
+            g2.dispose();
+            contentByte.addTemplate(template, 30, 300);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally{
+            if(document.isOpen()){
+                document.close();
+            }
+        }*/
+        
+    
+        } 
+        else if (decision == JOptionPane.NO_OPTION) 
+        {
+        Home newHomePanel= new Home(rightPanel);
+        rightPanel.add(newHomePanel);
+        CardLayout layout=(CardLayout)rightPanel.getLayout();
+        layout.next(rightPanel); 
+        }
+        else if(decision==JOptionPane.CLOSED_OPTION)
+        {
+        fNameTextField.setText(null);
+        lNameTextField.setText(null);
+        ageTextField.setText(null);
+        dateField.setDate(null);
+        emailTextField.setText(null);
+        buttonGroup1.clearSelection();
+        countryComboBox.setSelectedIndex(-1);
+        phoneTextField.setText(null);
+        cpwdTextField.setText(null);
+        pwdTextField.setText(null);
+        picLabel.setIcon(null);
+        }
+
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void imgButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imgButtonActionPerformed
@@ -618,6 +667,35 @@ private JPanel rightPanel;
         }
         checkinputs();
     }//GEN-LAST:event_imgButtonActionPerformed
+
+    private void pwdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwdTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pwdTextFieldActionPerformed
+
+    private void phoneTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_phoneTextFieldActionPerformed
+
+    private void cpwdTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cpwdTextFieldKeyReleased
+        // TODO add your handling code here:
+        pwd=pwdTextField.getText();
+        cpwd=cpwdTextField.getText();
+        if(cpwd.matches(pwd))
+        {
+          pwdInvalid.setVisible(false);
+        }
+        else
+        {
+            pwdInvalid.setText("Password is should matching");
+            pwdInvalid.setVisible(true);
+        }
+            
+    }//GEN-LAST:event_cpwdTextFieldKeyReleased
+
+    private void cpwdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpwdTextFieldActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_cpwdTextFieldActionPerformed
 
     public static BufferedImage scaleImage(int w, int h, BufferedImage img) throws Exception {
     BufferedImage bi = new BufferedImage(w, h, BufferedImage.TRANSLUCENT);
@@ -655,11 +733,14 @@ private JPanel rightPanel;
         boolean blnflag=lNameTextField.getText().matches("^[A-Z ]*");
         boolean bflag=fNameTextField.getText().matches("^[A-Z ]*");
         boolean bgenderflag = femaleRadio.isSelected() ||maleRadio.isSelected() ||notSayRadio.isSelected() ;
-        int spatientflg = patientComboBox.getSelectedIndex();
-        String smsg= messageTextArea.getText();
+        int countryflg = countryComboBox.getSelectedIndex();
+        String phone= phoneTextField.getText();
         Date bdobflag=dateField.getDate();
          Icon proImg= picLabel.getIcon();
-        if(bemlflag && bageflag && blnflag && bflag && bgenderflag && !smsg.isBlank() && !(spatientflg==-1) && (proImg!=null) && (bdobflag!=null))
+         String pwd=pwdTextField.getText();
+         String cpwd=cpwdTextField.getText();
+        if(bemlflag && bageflag && blnflag && bflag && bgenderflag && (phone!=null) && !(countryflg==-1) 
+                && (proImg!=null) && (bdobflag!=null) && (pwd.matches(cpwd)) && pwd!=null && cpwd!=null)
         {
             submitButton.setEnabled(true);
         }
@@ -674,7 +755,10 @@ private JPanel rightPanel;
     private javax.swing.JTextField ageTextField;
     private javax.swing.JPanel bgLabel;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> countryComboBox;
     private javax.swing.JLabel countryLabel;
+    private javax.swing.JLabel cpwdLabel;
+    private javax.swing.JTextField cpwdTextField;
     private com.toedter.calendar.JDateChooser dateField;
     private javax.swing.JLabel dobInvalid;
     private javax.swing.JLabel dobLabel;
@@ -688,20 +772,20 @@ private JPanel rightPanel;
     private javax.swing.JLabel genderInvalid;
     private javax.swing.JLabel genderLabel;
     private javax.swing.JButton imgButton;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lNameInvalid;
     private javax.swing.JLabel lNameLabel;
     private javax.swing.JTextField lNameTextField;
     private javax.swing.JRadioButton maleRadio;
-    private javax.swing.JScrollPane messageBox;
     private javax.swing.JLabel messageLabel;
-    private javax.swing.JTextArea messageTextArea;
-    private javax.swing.JLabel msgInvalid;
     private javax.swing.JRadioButton notSayRadio;
-    private javax.swing.JComboBox<String> patientComboBox;
     private javax.swing.JLabel patientInvalid;
+    private javax.swing.JLabel phoneInvalid;
+    private javax.swing.JTextField phoneTextField;
     private javax.swing.JLabel photoLabel;
     private javax.swing.JLabel picLabel;
+    private javax.swing.JLabel pwdInvalid;
+    private javax.swing.JLabel pwdLabel;
+    private javax.swing.JTextField pwdTextField;
     private javax.swing.JButton submitButton;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables

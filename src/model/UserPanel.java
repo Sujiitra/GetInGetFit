@@ -23,6 +23,7 @@ public class UserPanel {
    private String patientType;
    private String msg;
    private Icon pic;
+   private String pwd;
 
    public int getPid(){
        return pid;
@@ -84,11 +85,11 @@ public class UserPanel {
         this.patientType = patientType;
     }
 
-    public String getMsg() {
+    public String getPh() {
         return msg;
     }
 
-    public void setMsg(String msg) {
+    public void setPh(String msg) {
         this.msg = msg;
     }
 
@@ -98,6 +99,13 @@ public class UserPanel {
 
     public void setPic(Icon pic) {
         this.pic = pic;
+    }
+    public String getPwd() {
+        return msg;
+    }
+
+    public void setPwd(String msg) {
+        this.msg = msg;
     }
     
     

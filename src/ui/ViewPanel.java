@@ -211,7 +211,7 @@ public class ViewPanel extends javax.swing.JPanel {
             genderOut.setText(newUserPanel.getGender());
             emailOut.setText(newUserPanel.getEmail());
             patientOut.setText(newUserPanel.getPatientType());
-            msgOut.setText(newUserPanel.getMsg());
+            msgOut.setText(newUserPanel.getPh());
             photoOut.setIcon(newUserPanel.getPic());
            
        

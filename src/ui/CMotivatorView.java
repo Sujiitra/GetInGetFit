@@ -17,7 +17,7 @@ public class CMotivatorView extends javax.swing.JPanel {
 
 
     private JPanel rightPanel;
-    private ArrayList<UserPanel> patients;
+    private ArrayList<UserPanel> c;
     public CMotivatorView(JPanel inPane) {
         initComponents();
         this.rightPanel=inPane;
@@ -445,10 +445,10 @@ public class CMotivatorView extends javax.swing.JPanel {
 
 
     public void display(){
-        this.patients=DBConnector.getAllPatients();
+        this.c=DBConnector.getAllPatients();
         DefaultTableModel t=(DefaultTableModel)patientTable.getModel();
         t.setRowCount(0);
-        for(UserPanel p:patients){
+        for(UserPanel p:c){
             Object[] row=new Object[5];
             row[0]=p.getPid();
             row[1]=p.getFirstName();

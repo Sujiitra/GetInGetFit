@@ -4,25 +4,26 @@
  */
 package ui;
 
-import java.util.ArrayList;
 import javax.swing.JPanel;
-import model.UserPanel;
 
 /**
  *
  * @author sujiitramurukeshan
  */
-public class FChallengerView extends javax.swing.JPanel {
-
+public class Home extends javax.swing.JPanel {
+private JPanel rightPanel;
     /**
-     * Creates new form FChallengerView
+     * Creates new form Home
      */
-     private JPanel rightPanel;
-    private ArrayList<UserPanel> c;
-    public FChallengerView(JPanel inPane) {
+    
+    public Home(JPanel inPane) {
+        
         initComponents();
         this.rightPanel=inPane;
     }
+
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,23 +36,23 @@ public class FChallengerView extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
 
-        jLabel1.setText("FChallenger");
+        jLabel1.setText("HOME");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(165, 165, 165)
+                .addGap(262, 262, 262)
                 .addComponent(jLabel1)
-                .addContainerGap(167, Short.MAX_VALUE))
+                .addContainerGap(458, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(72, 72, 72)
+                .addGap(243, 243, 243)
                 .addComponent(jLabel1)
-                .addContainerGap(211, Short.MAX_VALUE))
+                .addContainerGap(358, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

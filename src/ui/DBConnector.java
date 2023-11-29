@@ -21,7 +21,7 @@ DBConnector(){
 }
 
  public static void addPatient(UserPanel patient) {
-    String query = "INSERT INTO REGISTEREDPATIENTS(FIRST,LAST,EMAILID,PATIENTTYPE) VALUES(?,?,?,?)";
+    String query = "INSERT INTO Challengers(FIRST,LAST,EMAILID,COUNTRY) VALUES(?,?,?,?)";
     try (Connection conn = DriverManager.getConnection(URL, USERNAME,PASSWORD)) {
         PreparedStatement stmt = conn.prepareStatement(query);
         stmt.setString(1, patient.getFirstName());
@@ -40,17 +40,17 @@ DBConnector(){
 public static ArrayList<UserPanel> getAllPatients() {
 
     ArrayList<UserPanel> patient = new ArrayList<>();
-    String query = "SELECT PATIENTID,FIRST,LAST,EMAILID,PATIENTTYPE FROM REGISTEREDPATIENTS";
+    String query = "SELECT CHALLENGERID,FIRST,LAST,EMAILID,COUNTRY FROM Challengers";
     try (Connection conn = DriverManager.getConnection(URL, USERNAME,PASSWORD)) {
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery(query);
         while (rs.next()) {
         UserPanel p = new UserPanel();
-        p.setPid(rs.getInt("PATIENTID"));
+        p.setPid(rs.getInt("CHALLENGERID"));
         p.setFirstName(rs.getString("FIRST"));
         p.setLastName(rs.getString("LAST"));
         p.setEmail(rs.getString("EMAILID"));
-        p.setPatientType(rs.getString("PATIENTTYPE"));
+        p.setPatientType(rs.getString("COUNTRY"));
         patient.add(p);
         }
         rs.close();
@@ -63,7 +63,7 @@ public static ArrayList<UserPanel> getAllPatients() {
 }
  
  public static void deletePatient(UserPanel p) {
-String query = "DELETE from REGISTEREDPATIENTS where PATIENTID = ?";
+String query = "DELETE from CHALLENGERS where CHALLENGERID = ?";
 try (Connection conn = DriverManager.getConnection(URL, USERNAME,PASSWORD)) {
 PreparedStatement stmt = conn.prepareStatement(query);
 stmt.setInt(1, p.getPid());
@@ -75,7 +75,7 @@ e.printStackTrace();
 }
  
  public static void editPatient(UserPanel newPatient) {
-    String query = "UPDATE REGISTEREDPATIENTS SET FIRST=?, LAST=?, EMAILID=?, PATIENTTYPE=? WHERE PATIENTID=?";
+    String query = "UPDATE CHALLENGERS SET FIRST=?, LAST=?, EMAILID=?, COUNTRY=? WHERE CHALLENGERID=?";
     try (Connection conn = DriverManager.getConnection(URL, USERNAME,PASSWORD)) {
         PreparedStatement stmt = conn.prepareStatement(query);
         stmt.setString(1, newPatient.getFirstName());
