@@ -4,6 +4,7 @@
  */
 package ui;
 
+import java.awt.CardLayout;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -40,39 +41,52 @@ public class CChallengerView extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        logOut = new javax.swing.JLabel();
+        logOutButton = new javax.swing.JButton();
 
         jLabel1.setText("CChallengerView");
 
-        logOut.setText("jLabel2");
+        logOutButton.setText("Logout");
+        logOutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logOutButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(176, 176, 176)
+                .addGap(220, 220, 220)
                 .addComponent(jLabel1)
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addContainerGap(446, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(logOut)
-                .addGap(61, 61, 61))
+                .addComponent(logOutButton)
+                .addGap(29, 29, 29))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(logOut)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                .addGap(21, 21, 21)
+                .addComponent(logOutButton)
+                .addGap(187, 187, 187)
                 .addComponent(jLabel1)
-                .addGap(126, 126, 126))
+                .addContainerGap(282, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
+        // TODO add your handling code here:
+        Home newHomePanel= new Home(rightPanel);
+        rightPanel.add(newHomePanel);
+        CardLayout layout=(CardLayout)rightPanel.getLayout();
+        layout.next(rightPanel);
+    }//GEN-LAST:event_logOutButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel logOut;
+    private javax.swing.JButton logOutButton;
     // End of variables declaration//GEN-END:variables
 }

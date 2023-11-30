@@ -397,7 +397,7 @@ public class AdminLogin extends javax.swing.JPanel {
         break;
         case 1:
             {
-        String query = "Select PASSWORD FROM MOTIVATOR WHERE LOGINNAME=?";
+        String query = "Select PASSWORD FROM MOTIVATORS WHERE LOGINNAME=?";
         try (Connection conn = DriverManager.getConnection(URL, USERNAME,PASSWORD)) {
         PreparedStatement stmt = conn.prepareStatement(query);
         stmt.setString(1, cLoginText.getText());
@@ -504,7 +504,7 @@ public class AdminLogin extends javax.swing.JPanel {
         break;
         case 1:
             {
-        String query = "Select PASSWORD FROM MOTIVATOR WHERE LOGINNAME=?";
+        String query = "Select PASSWORD FROM MOTIVATORS WHERE LOGINNAME=?";
         try (Connection conn = DriverManager.getConnection(URL, USERNAME,PASSWORD)) {
         PreparedStatement stmt = conn.prepareStatement(query);
         stmt.setString(1, fLoginText.getText());

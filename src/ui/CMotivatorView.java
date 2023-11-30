@@ -1,6 +1,7 @@
 
 package ui;
 
+import java.awt.CardLayout;
 import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -66,6 +67,7 @@ public class CMotivatorView extends javax.swing.JPanel {
         patienttypeInvalid = new javax.swing.JLabel();
         submitButton = new javax.swing.JButton();
         logOut = new javax.swing.JLabel();
+        logOutButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 255, 204));
         setPreferredSize(new java.awt.Dimension(758, 688));
@@ -167,6 +169,13 @@ public class CMotivatorView extends javax.swing.JPanel {
             }
         });
 
+        logOutButton.setText("Logout");
+        logOutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logOutButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -222,15 +231,22 @@ public class CMotivatorView extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(135, 135, 135)
                 .addComponent(logOut)
-                .addGap(107, 107, 107))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(logOutButton)
+                .addGap(53, 53, 53))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(logOut))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(logOut)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(logOutButton)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
@@ -442,6 +458,14 @@ public class CMotivatorView extends javax.swing.JPanel {
       
     }//GEN-LAST:event_lNameTextKeyReleased
 
+    private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
+        // TODO add your handling code here:
+        Home newHomePanel= new Home(rightPanel);
+        rightPanel.add(newHomePanel);
+        CardLayout layout=(CardLayout)rightPanel.getLayout();
+        layout.next(rightPanel);
+    }//GEN-LAST:event_logOutButtonActionPerformed
+
 
 
     public void display(){
@@ -498,6 +522,7 @@ public class CMotivatorView extends javax.swing.JPanel {
     private javax.swing.JTextField lNameText;
     private javax.swing.JLabel lnameInvalid;
     private javax.swing.JLabel logOut;
+    private javax.swing.JButton logOutButton;
     private javax.swing.JTable patientTable;
     private javax.swing.JComboBox<String> patientTypeCombo;
     private javax.swing.JLabel patientTypeLabel;

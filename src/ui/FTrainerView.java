@@ -34,8 +34,11 @@ public class FTrainerView extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        logOutButton = new javax.swing.JButton();
 
         jLabel1.setText("FTrainer");
+
+        logOutButton.setText("Logout");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -44,19 +47,26 @@ public class FTrainerView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(138, 138, 138)
                 .addComponent(jLabel1)
-                .addContainerGap(216, Short.MAX_VALUE))
+                .addContainerGap(602, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(logOutButton)
+                .addGap(33, 33, 33))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
+                .addGap(15, 15, 15)
+                .addComponent(logOutButton)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel1)
-                .addContainerGap(216, Short.MAX_VALUE))
+                .addContainerGap(510, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton logOutButton;
     // End of variables declaration//GEN-END:variables
 }
