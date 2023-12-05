@@ -16,28 +16,85 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="262" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="458" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="243" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="358" max="32767" attributes="0"/>
-          </Group>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="HOME"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="cc" red="ff" type="rgb"/>
+        </Property>
       </Properties>
-    </Component>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" pref="766" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="33" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" pref="554" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Helvetica Neue" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Home"/>
+          </Properties>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="jTextArea1">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="99" green="cc" red="ff" type="rgb"/>
+                </Property>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Helvetica Neue" size="14" style="0"/>
+                </Property>
+                <Property name="rows" type="int" value="5"/>
+                <Property name="text" type="java.lang.String" value="Welcome to Get Fit!&#xa;&#xa;At Get Fit, we understand that embarking on a journey towards a healthier and happier you is a personal and &#xa;transformative experience.&#xa;Our platform is designed to support and inspire individuals on their weight loss journey, fostering a &#xa;community where shared goals and achievements become the pillars of success.&#xa;&#xa;Our Mission&#xa;&#xa;At the heart of our mission is a commitment to empower individuals to achieve their weight loss goals in a &#xa;sustainable and enjoyable way. We believe that a supportive community, expert guidance, and personalized &#xa;approaches are the keys to unlocking lasting health and wellness.&#xa;&#xa;Who We Are&#xa;&#xa;We are a team of passionate health and fitness enthusiasts, dedicated to creating a positive and motivating &#xa;space for anyone looking to make positive changes in their lives. Our experts, including  nutritionists, fitness &#xa;trainers, and wellness coaches, bring a wealth of knowledge to guide you through your weight loss journey.&#xa;&#xa;What Sets Us Apart&#xa;&#xa;Community-Centric Approach:&#xa;&#xa;We believe in the power of community support. Connect with like-minded individuals, share your challenges &#xa;and victories, and be inspired by the success stories of others on similar journeys.&#xa;&#xa;Expert Guidance: &#xa;&#xa;Our team of experienced professionals is here to provide expert advice, personalized plans, and motivation &#xa;tailored to your unique needs.&#xa;&#xa;Science-Based Solutions:&#xa;&#xa;We leverage the latest scientific research to offer evidence-based strategies for weight loss. Our approach &#xa;focuses on sustainable habits that contribute to long-term success.&#xa;&#xa;Fun Challenges and Competitions:&#xa;&#xa;Engage in exciting challenges and friendly competitions that make the journey enjoyable and foster a sense of &#xa;accomplishment.&#xa;&#xa;Join Us on Your Journey&#xa;&#xa;Embark on a transformative journey with Get Fit. Together, let&apos;s celebrate health, wellness, and the incredible &#xa;strength that  comes from embracing positive change.&#xa;Join our community today and discover the support you need to make lasting improvements in your life.&#xa;&#xa;"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>

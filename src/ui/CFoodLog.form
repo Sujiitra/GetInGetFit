@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel1" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="0" type="rgb"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="263" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="LunchL" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lQtyLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="dLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="dQtyLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="nSLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="eSLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="brkQtyL" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="dateLabel" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="bLabel" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="updateButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="intakeDate" alignment="0" min="-2" pref="199" max="-2" attributes="0"/>
+                              <Component id="brk" alignment="0" max="32767" attributes="0"/>
+                              <Component id="bq" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lun" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lq" alignment="0" max="32767" attributes="0"/>
+                              <Component id="din" alignment="0" max="32767" attributes="0"/>
+                              <Component id="dq" alignment="0" max="32767" attributes="0"/>
+                              <Component id="ns" alignment="0" max="32767" attributes="0"/>
+                              <Component id="es" alignment="0" pref="375" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="201" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="25" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="dateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="intakeDate" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="bLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="brk" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="brkQtyL" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="bq" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="LunchL" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lun" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lQtyLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lq" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="dLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="din" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="dQtyLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dq" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="nSLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ns" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="eSLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="es" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="34" max="32767" attributes="0"/>
+                  <Component id="updateButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Helvetica Neue" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Enter the daily food log"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="updateButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Update"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="dateLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Date:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="lun">
+        </Component>
+        <Component class="javax.swing.JTextField" name="lq">
+        </Component>
+        <Component class="javax.swing.JTextField" name="din">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dinActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="dq">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dqActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="ns">
+        </Component>
+        <Component class="javax.swing.JTextField" name="es">
+        </Component>
+        <Component class="javax.swing.JLabel" name="bLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Breakfast:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="brkQtyL">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Breakfast Qty:"/>
+          </Properties>
+        </Component>
+        <Component class="com.toedter.calendar.JDateChooser" name="intakeDate">
+        </Component>
+        <Component class="javax.swing.JLabel" name="LunchL">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Lunch:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="brk">
+        </Component>
+        <Component class="javax.swing.JLabel" name="lQtyLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Lunch Qty:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="bq">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bqActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="dLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Dinner:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="dQtyLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Dinner Qty:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="nSLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Noon Snack:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="eSLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Evening Snack:"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>

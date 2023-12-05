@@ -68,7 +68,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="cLoginLabel" min="-2" max="-2" attributes="0"/>
@@ -83,16 +83,16 @@
                               <Component id="cCredentialsInvalid" min="-2" pref="337" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="cRoleCombo" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
-                                  <Component id="cLoginText" pref="280" max="32767" attributes="0"/>
-                                  <Component id="cPwdText" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cLoginText" min="-2" pref="280" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="cRoleInvalid" min="-2" pref="270" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="cPwdText" alignment="0" min="-2" pref="240" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="99" max="32767" attributes="0"/>
+                      <EmptySpace pref="47" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -110,17 +110,17 @@
                           <Component id="cLoginLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cLoginText" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="cPwdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cPwdText" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="cPwdText" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="cSubmitButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cCredentialsInvalid" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="393" max="32767" attributes="0"/>
+                      <EmptySpace pref="385" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -165,11 +165,6 @@
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cLoginTextKeyTyped"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="cPwdText">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cPwdTextActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="cSubmitButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sign In"/>
@@ -181,6 +176,11 @@
             <Component class="javax.swing.JLabel" name="cCredentialsInvalid">
             </Component>
             <Component class="javax.swing.JLabel" name="cRoleInvalid">
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="cPwdText">
+              <Properties>
+                <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -211,10 +211,10 @@
                                   <Component id="fPwdLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="fRoleCombo" min="-2" pref="140" max="-2" attributes="0"/>
-                                  <Component id="fLoginText" min="-2" pref="238" max="-2" attributes="0"/>
-                                  <Component id="fPwdText" alignment="0" min="-2" pref="238" max="-2" attributes="0"/>
+                                  <Component id="fLoginText" pref="238" max="32767" attributes="0"/>
+                                  <Component id="fPwdText" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                               <Component id="fRoleInvalid" min="-2" pref="245" max="-2" attributes="0"/>
@@ -226,7 +226,7 @@
                               <Component id="fSignInInvalid" min="-2" pref="284" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="94" max="32767" attributes="0"/>
+                      <EmptySpace pref="42" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -244,17 +244,17 @@
                           <Component id="fLoginLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="fLoginText" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="fPwdLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="fPwdText" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="fPwdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="fPwdText" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="fSignInButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="fSignInInvalid" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="379" max="32767" attributes="0"/>
+                      <EmptySpace pref="371" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -308,7 +308,7 @@
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="fLoginTextKeyPressed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="fPwdText">
+            <Component class="javax.swing.JPasswordField" name="fPwdText">
             </Component>
           </SubComponents>
         </Container>

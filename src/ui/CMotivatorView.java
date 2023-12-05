@@ -1,4 +1,3 @@
-
 package ui;
 
 import java.awt.CardLayout;
@@ -10,39 +9,35 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import model.UserPanel;
 
-/**
- *
- * @author sujiitramurukeshan
- */
 public class CMotivatorView extends javax.swing.JPanel {
-
 
     private JPanel rightPanel;
     private ArrayList<UserPanel> c;
+
     public CMotivatorView(JPanel inPane) {
         initComponents();
-        this.rightPanel=inPane;
+        this.rightPanel = inPane;
         ImageIcon logOutIcon = new ImageIcon("./Images/logoutIcon.jpg");
         logOut.setIcon(logOutIcon);
         submitButton.setVisible(false);
         fNameText.setVisible(false);
         lNameText.setVisible(false);
         emailText.setVisible(false);
-        patientTypeCombo.setVisible(false);
+        countryTypeCombo.setVisible(false);
         fNameLabel.setVisible(false);
         lNameLabel.setVisible(false);
         emailLabel.setVisible(false);
-        patientTypeLabel.setVisible(false);
+        countryLabel.setVisible(false);
         chooseRecordInvalid.setVisible(false);
         display();
     }
-    
+
     private static String sfn;
-    private static String sln ;
+    private static String sln;
     private static String seml;
     private static String sptype;
     private static int addOrEdit;
- 
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -56,15 +51,15 @@ public class CMotivatorView extends javax.swing.JPanel {
         fNameLabel = new javax.swing.JLabel();
         lNameLabel = new javax.swing.JLabel();
         emailLabel = new javax.swing.JLabel();
-        patientTypeLabel = new javax.swing.JLabel();
+        countryLabel = new javax.swing.JLabel();
         fNameText = new javax.swing.JTextField();
         lNameText = new javax.swing.JTextField();
         emailText = new javax.swing.JTextField();
-        patientTypeCombo = new javax.swing.JComboBox<>();
+        countryTypeCombo = new javax.swing.JComboBox<>();
         fnameInvalid = new javax.swing.JLabel();
         lnameInvalid = new javax.swing.JLabel();
         emailInvalid = new javax.swing.JLabel();
-        patienttypeInvalid = new javax.swing.JLabel();
+        countrytypeInvalid = new javax.swing.JLabel();
         submitButton = new javax.swing.JButton();
         logOut = new javax.swing.JLabel();
         logOutButton = new javax.swing.JButton();
@@ -80,13 +75,13 @@ public class CMotivatorView extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "PID", "FIRST", "LAST", "EMAIL", "PATIENTTYPE"
+                "CID", "FIRST", "LAST", "EMAIL", "COUNTRY"
             }
         ));
         jScrollPane1.setViewportView(patientTable);
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jLabel1.setText("Registered Patients");
+        jLabel1.setText("Challenger List");
 
         addButton.setText("Add");
         addButton.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +112,7 @@ public class CMotivatorView extends javax.swing.JPanel {
 
         emailLabel.setText("Email Id");
 
-        patientTypeLabel.setText("Patient Type");
+        countryLabel.setText("Country");
 
         fNameText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -146,11 +141,11 @@ public class CMotivatorView extends javax.swing.JPanel {
             }
         });
 
-        patientTypeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "In-Patient", "Out Patient", "New Patient" }));
-        patientTypeCombo.setSelectedIndex(-1);
-        patientTypeCombo.addFocusListener(new java.awt.event.FocusAdapter() {
+        countryTypeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Canada", "China", "India", "USA" }));
+        countryTypeCombo.setSelectedIndex(-1);
+        countryTypeCombo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                patientTypeComboFocusLost(evt);
+                countryTypeComboFocusLost(evt);
             }
         });
 
@@ -160,7 +155,7 @@ public class CMotivatorView extends javax.swing.JPanel {
 
         emailInvalid.setForeground(new java.awt.Color(255, 0, 0));
 
-        patienttypeInvalid.setForeground(new java.awt.Color(255, 0, 0));
+        countrytypeInvalid.setForeground(new java.awt.Color(255, 0, 0));
 
         submitButton.setText("Submit");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -193,7 +188,7 @@ public class CMotivatorView extends javax.swing.JPanel {
                                 .addComponent(lNameLabel)
                                 .addComponent(fNameLabel)
                                 .addComponent(emailLabel)
-                                .addComponent(patientTypeLabel)))
+                                .addComponent(countryLabel)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(56, 56, 56)
@@ -214,10 +209,10 @@ public class CMotivatorView extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(patientTypeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(countryTypeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(29, 29, 29)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(patienttypeInvalid)
+                                            .addComponent(countrytypeInvalid)
                                             .addComponent(emailInvalid)))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(160, 160, 160)
@@ -274,133 +269,122 @@ public class CMotivatorView extends javax.swing.JPanel {
                     .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(patientTypeLabel)
+                    .addComponent(countryLabel)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(patientTypeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(patienttypeInvalid)))
+                        .addComponent(countryTypeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(countrytypeInvalid)))
                 .addGap(26, 26, 26)
                 .addComponent(submitButton)
                 .addContainerGap(71, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    
+
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        
+
         submitButton.setVisible(true);
         fNameText.setVisible(true);
         lNameText.setVisible(true);
         emailText.setVisible(true);
-        patientTypeCombo.setVisible(true);
+        countryTypeCombo.setVisible(true);
         fNameLabel.setVisible(true);
         lNameLabel.setVisible(true);
         emailLabel.setVisible(true);
-        patientTypeLabel.setVisible(true);
+        countryLabel.setVisible(true);
         chooseRecordInvalid.setVisible(false);
-        addOrEdit=1;
-       
+        addOrEdit = 1;
+
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
-        
-        if(patientTable.getSelectedRow()==-1)
-     chooseRecordInvalid.setVisible(true);
-     else {
-            int index=patientTable.getSelectedRow();
-            
-            fNameText.setText((String)patientTable.getValueAt(index, 1));
+
+        if (patientTable.getSelectedRow() == -1) {
+            chooseRecordInvalid.setVisible(true);
+        } else {
+            int index = patientTable.getSelectedRow();
+            fNameText.setText((String) patientTable.getValueAt(index, 1));
             fNameText.setVisible(true);
-            lNameText.setText((String)patientTable.getValueAt(index, 2));
-            
-            
-        lNameText.setVisible(true);
-        emailText.setText((String)patientTable.getValueAt(index, 3));
-        emailText.setVisible(true);
-        patientTypeCombo.setSelectedItem((String)patientTable.getValueAt(index, 4));
-        patientTypeCombo.setVisible(true);
-        fNameLabel.setVisible(true);
-        lNameLabel.setVisible(true);
-        emailLabel.setVisible(true);
-        patientTypeLabel.setVisible(true);
-        submitButton.setVisible(true);
-        chooseRecordInvalid.setVisible(false);
-        addOrEdit=2;
+            lNameText.setText((String) patientTable.getValueAt(index, 2));
+            lNameText.setVisible(true);
+            emailText.setText((String) patientTable.getValueAt(index, 3));
+            emailText.setVisible(true);
+            countryTypeCombo.setSelectedItem((String) patientTable.getValueAt(index, 4));
+            countryTypeCombo.setVisible(true);
+            fNameLabel.setVisible(true);
+            lNameLabel.setVisible(true);
+            emailLabel.setVisible(true);
+            countryLabel.setVisible(true);
+            submitButton.setVisible(true);
+            chooseRecordInvalid.setVisible(false);
+            addOrEdit = 2;
 
         }
-  
+
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        
 
-        if(patientTable.getSelectedRow()==-1)
+        if (patientTable.getSelectedRow() == -1) {
             chooseRecordInvalid.setVisible(true);
-        else {
+        } else {
             chooseRecordInvalid.setVisible(false);
-            int index=patientTable.getSelectedRow();
-            UserPanel op=new UserPanel();
-            op.setPid((int)patientTable.getValueAt(index,0));
+            int index = patientTable.getSelectedRow();
+            UserPanel op = new UserPanel();
+            op.setPid((int) patientTable.getValueAt(index, 0));
             op.getPid();
-            DBConnector.deletePatient(op);
+            DBConnector.deleteChallenger(op);
             JOptionPane.showMessageDialog(null, "Deleted Successfully");
             display();
         }
-        
+
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-        
 
-        UserPanel np=new UserPanel();
+        UserPanel np = new UserPanel();
         np.setFirstName(fNameText.getText());
         np.getFirstName();
         np.setLastName(lNameText.getText());
         np.getLastName();
         np.setEmail(emailText.getText());
         np.getEmail();
-        np.setPatientType((String)patientTypeCombo.getSelectedItem());
-        np.getPatientType();
-        
-        if(addOrEdit==1)
-          DBConnector.addPatient(np);
-        else if (addOrEdit==2){
-        int i=patientTable.getSelectedRow();
-            np.setPid((int)patientTable.getValueAt(i, 0));
+        np.setCountry((String) countryTypeCombo.getSelectedItem());
+        np.getCountry();
+
+        if (addOrEdit == 1) {
+            DBConnector.addChallenger(np);
+        } else if (addOrEdit == 2) {
+            int i = patientTable.getSelectedRow();
+            np.setPid((int) patientTable.getValueAt(i, 0));
             np.getPid();
-            DBConnector.editPatient( np);
-          
-             
-      }
-      JOptionPane.showMessageDialog(null, "Submitted Successfully");
-      display();
+            DBConnector.editChallenger(np);
+
+        }
+        JOptionPane.showMessageDialog(null, "Submitted Successfully");
+        display();
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void fNameTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fNameTextKeyTyped
         char keych = evt.getKeyChar();
-        if(Character.isLowerCase(keych))
-        {
+        if (Character.isLowerCase(keych)) {
             evt.setKeyChar(Character.toUpperCase(keych));
         }
     }//GEN-LAST:event_fNameTextKeyTyped
 
     private void lNameTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lNameTextKeyTyped
         char keych = evt.getKeyChar();
-        if(Character.isLowerCase(keych))
-        {
+        if (Character.isLowerCase(keych)) {
             evt.setKeyChar(Character.toUpperCase(keych));
         }
     }//GEN-LAST:event_lNameTextKeyTyped
 
     private void emailTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailTextKeyReleased
-        
-       seml = emailText.getText();
+
+        seml = emailText.getText();
         boolean bemlflag = seml.matches("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,6}$");
-        if(bemlflag)
-        {
+        if (bemlflag) {
             emailInvalid.setVisible(false);
-        }
-        else
-        {
+        } else {
             emailInvalid.setText("Please enter a valid email address");
             emailInvalid.setVisible(true);
         }
@@ -408,106 +392,97 @@ public class CMotivatorView extends javax.swing.JPanel {
 
     private void emailTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailTextKeyTyped
         char keych = evt.getKeyChar();
-        if(Character.isUpperCase(keych))
-        {
+        if (Character.isUpperCase(keych)) {
             evt.setKeyChar(Character.toLowerCase(keych));
         }
     }//GEN-LAST:event_emailTextKeyTyped
 
-    private void patientTypeComboFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_patientTypeComboFocusLost
-        int scntryflg = patientTypeCombo.getSelectedIndex();
-        if(scntryflg!=-1)
-        {
-            patienttypeInvalid.setVisible(false);
+    private void countryTypeComboFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_countryTypeComboFocusLost
+        int scntryflg = countryTypeCombo.getSelectedIndex();
+        if (scntryflg != -1) {
+            countrytypeInvalid.setVisible(false);
+        } else {
+            countrytypeInvalid.setText("Please choose one");
+            countrytypeInvalid.setVisible(true);
         }
-        else
-        {
-            patienttypeInvalid.setText("Please choose one");
-            patienttypeInvalid.setVisible(true);
-        }
-        
-    }//GEN-LAST:event_patientTypeComboFocusLost
+
+    }//GEN-LAST:event_countryTypeComboFocusLost
 
     private void fNameTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fNameTextKeyReleased
         sln = fNameText.getText();
-        boolean bflag=sln.matches("^[A-Z ]*");
-        if(bflag)
-        {
+        boolean bflag = sln.matches("^[A-Z ]*");
+        if (bflag) {
             fnameInvalid.setVisible(false);
-        }
-        else
-        {
+        } else {
             fnameInvalid.setText("Please enter only alphabets");
             fnameInvalid.setVisible(true);
         }
-        
+
     }//GEN-LAST:event_fNameTextKeyReleased
 
     private void lNameTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lNameTextKeyReleased
         sln = lNameText.getText();
-        boolean bflag=sln.matches("^[A-Z ]*");
-        if(bflag)
-        {
+        boolean bflag = sln.matches("^[A-Z ]*");
+        if (bflag) {
             lnameInvalid.setVisible(false);
-        }
-        else
-        {
+        } else {
             lnameInvalid.setText("Please enter only alphabets");
             lnameInvalid.setVisible(true);
         }
-      
+
     }//GEN-LAST:event_lNameTextKeyReleased
 
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
-        // TODO add your handling code here:
-        Home newHomePanel= new Home(rightPanel);
+        Home newHomePanel = new Home(rightPanel);
         rightPanel.add(newHomePanel);
-        CardLayout layout=(CardLayout)rightPanel.getLayout();
+        CardLayout layout = (CardLayout) rightPanel.getLayout();
         layout.next(rightPanel);
     }//GEN-LAST:event_logOutButtonActionPerformed
 
-
-
-    public void display(){
-        this.c=DBConnector.getAllPatients();
-        DefaultTableModel t=(DefaultTableModel)patientTable.getModel();
+    public void display() {
+        this.c = DBConnector.getAllChallengers();
+        DefaultTableModel t = (DefaultTableModel) patientTable.getModel();
         t.setRowCount(0);
-        for(UserPanel p:c){
-            Object[] row=new Object[5];
-            row[0]=p.getPid();
-            row[1]=p.getFirstName();
-            row[2]=p.getLastName();
-            row[3]=p.getEmail();
-            row[4]=p.getPatientType();
+        for (UserPanel p : c) {
+            Object[] row = new Object[5];
+            row[0] = p.getPid();
+            row[1] = p.getFirstName();
+            row[2] = p.getLastName();
+            row[3] = p.getEmail();
+            row[4] = p.getCountry();
             t.addRow(row);
         }
         clearValues();
-            
-        }
-    private void clearValues(){
+
+    }
+
+    private void clearValues() {
         fNameText.setText("");
         lNameText.setText("");
         emailText.setText("");
-        patientTypeCombo.setSelectedIndex(-1);
+        countryTypeCombo.setSelectedIndex(-1);
         fNameText.setVisible(false);
         lNameText.setVisible(false);
         emailText.setVisible(false);
-        patientTypeCombo.setVisible(false);
+        countryTypeCombo.setVisible(false);
         fNameLabel.setVisible(false);
         lNameLabel.setVisible(false);
         emailLabel.setVisible(false);
-        patientTypeLabel.setVisible(false);
+        countryLabel.setVisible(false);
         chooseRecordInvalid.setVisible(false);
         fnameInvalid.setVisible(false);
         lnameInvalid.setVisible(false);
         emailInvalid.setVisible(false);
-        patienttypeInvalid.setVisible(false);
+        countrytypeInvalid.setVisible(false);
         submitButton.setVisible(false);
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
     private javax.swing.JLabel chooseRecordInvalid;
+    private javax.swing.JLabel countryLabel;
+    private javax.swing.JComboBox<String> countryTypeCombo;
+    private javax.swing.JLabel countrytypeInvalid;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton editButton;
     private javax.swing.JLabel emailInvalid;
@@ -524,9 +499,6 @@ public class CMotivatorView extends javax.swing.JPanel {
     private javax.swing.JLabel logOut;
     private javax.swing.JButton logOutButton;
     private javax.swing.JTable patientTable;
-    private javax.swing.JComboBox<String> patientTypeCombo;
-    private javax.swing.JLabel patientTypeLabel;
-    private javax.swing.JLabel patienttypeInvalid;
     private javax.swing.JButton submitButton;
     // End of variables declaration//GEN-END:variables
 }

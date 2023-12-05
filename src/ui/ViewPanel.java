@@ -1,25 +1,23 @@
-
 package ui;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import javax.swing.Icon;
-import javax.swing.JPanel;
 import model.UserPanel;
 
 public class ViewPanel extends javax.swing.JPanel {
 
     private UserPanel newUserPanel;
+
     public ViewPanel(UserPanel newUPanel) {
         initComponents();
-        this.newUserPanel=newUPanel;
-        if(newUPanel!=null)
-        showDetails();
-       
+        this.newUserPanel = newUPanel;
+        if (newUPanel != null) {
+            showDetails();
+        }
+        msgLabel.setVisible(false);
+        msgOut.setVisible(false);
+
     }
 
-
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -39,7 +37,7 @@ public class ViewPanel extends javax.swing.JPanel {
         ageOut = new javax.swing.JLabel();
         genderOut = new javax.swing.JLabel();
         emailOut = new javax.swing.JLabel();
-        patientOut = new javax.swing.JLabel();
+        countryOut = new javax.swing.JLabel();
         msgOut = new javax.swing.JLabel();
         photoOut = new javax.swing.JLabel();
         dobLabel = new javax.swing.JLabel();
@@ -68,10 +66,10 @@ public class ViewPanel extends javax.swing.JPanel {
         emailLabel.setText("E-mail:");
 
         patientLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
-        patientLabel.setText("Patient Type:");
+        patientLabel.setText("Country:");
 
         msgLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
-        msgLabel.setText("Message:");
+        msgLabel.setText("Phone#:");
 
         photoLabel.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
         photoLabel.setText("Uploaded Photo");
@@ -87,7 +85,7 @@ public class ViewPanel extends javax.swing.JPanel {
 
         emailOut.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
 
-        patientOut.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
+        countryOut.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
 
         msgOut.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
 
@@ -125,10 +123,10 @@ public class ViewPanel extends javax.swing.JPanel {
                             .addComponent(photoOut, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ageOut, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(emailOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(patientOut, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(countryOut, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(msgOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(dobOut, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,57 +167,50 @@ public class ViewPanel extends javax.swing.JPanel {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(patientLabel)
-                    .addComponent(patientOut, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(countryOut, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(msgLabel)
                     .addComponent(msgOut, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(photoLabel)
                     .addComponent(photoOut, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(19, 19, 19))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-         private void showDetails(){
-             
-
+         private void showDetails() {
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         String dob;
-    
-            fNameOut.setText(newUserPanel.getFirstName());
-            lNameOut.setText(newUserPanel.getLastName());
-            ageOut.setText(newUserPanel.getAge());
-            dobOut.setText(newUserPanel.getDOB().toString());
-            genderOut.setText(newUserPanel.getGender());
-            emailOut.setText(newUserPanel.getEmail());
-            patientOut.setText(newUserPanel.getPatientType());
-            msgOut.setText(newUserPanel.getPh());
-            photoOut.setIcon(newUserPanel.getPic());
-           
-       
-        }
+        fNameOut.setText(newUserPanel.getFirstName());
+        lNameOut.setText(newUserPanel.getLastName());
+        ageOut.setText(newUserPanel.getAge());
+        dobOut.setText(newUserPanel.getDOB().toString());
+        genderOut.setText(newUserPanel.getGender());
+        emailOut.setText(newUserPanel.getEmail());
+        countryOut.setText(newUserPanel.getCountry());
+        msgOut.setText(newUserPanel.getPh());
+        photoOut.setIcon(newUserPanel.getPic());
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ageLabel;
     private javax.swing.JLabel ageOut;
+    private javax.swing.JLabel countryOut;
     private javax.swing.JLabel dobLabel;
     private javax.swing.JLabel dobOut;
     private javax.swing.JLabel emailLabel;
@@ -234,7 +225,6 @@ public class ViewPanel extends javax.swing.JPanel {
     private javax.swing.JLabel msgLabel;
     private javax.swing.JLabel msgOut;
     private javax.swing.JLabel patientLabel;
-    private javax.swing.JLabel patientOut;
     private javax.swing.JLabel photoLabel;
     private javax.swing.JLabel photoOut;
     private javax.swing.JLabel titleLabel;

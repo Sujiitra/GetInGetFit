@@ -1,7 +1,6 @@
 package ui;
 
 import java.awt.CardLayout;
-import javax.swing.JPanel;
 import model.UserPanel;
 
 public class JFrame extends javax.swing.JFrame {
@@ -19,25 +18,19 @@ public class JFrame extends javax.swing.JFrame {
         splitPane = new javax.swing.JSplitPane();
         leftPanel = new javax.swing.JPanel();
         formButton = new javax.swing.JButton();
-        viewButton = new javax.swing.JButton();
         loginButton = new javax.swing.JButton();
+        homeButton = new javax.swing.JButton();
+        contactButton = new javax.swing.JButton();
         rightPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        leftPanel.setBackground(new java.awt.Color(153, 0, 255));
+        leftPanel.setBackground(new java.awt.Color(255, 204, 153));
 
         formButton.setText("Register");
         formButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 formButtonActionPerformed(evt);
-            }
-        });
-
-        viewButton.setText("View Details");
-        viewButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewButtonActionPerformed(evt);
             }
         });
 
@@ -48,6 +41,20 @@ public class JFrame extends javax.swing.JFrame {
             }
         });
 
+        homeButton.setText("Home");
+        homeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeButtonActionPerformed(evt);
+            }
+        });
+
+        contactButton.setText("Contact");
+        contactButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contactButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout leftPanelLayout = new javax.swing.GroupLayout(leftPanel);
         leftPanel.setLayout(leftPanelLayout);
         leftPanelLayout.setHorizontalGroup(
@@ -55,29 +62,29 @@ public class JFrame extends javax.swing.JFrame {
             .addGroup(leftPanelLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(contactButton)
+                    .addComponent(homeButton)
                     .addComponent(formButton)
                     .addComponent(loginButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, leftPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(viewButton)
-                .addContainerGap())
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         leftPanelLayout.setVerticalGroup(
             leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(leftPanelLayout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(loginButton)
                 .addGap(74, 74, 74)
+                .addComponent(homeButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(contactButton)
+                .addGap(18, 18, 18)
+                .addComponent(loginButton)
+                .addGap(18, 18, 18)
                 .addComponent(formButton)
-                .addGap(100, 100, 100)
-                .addComponent(viewButton)
-                .addContainerGap(304, Short.MAX_VALUE))
+                .addContainerGap(483, Short.MAX_VALUE))
         );
 
         splitPane.setLeftComponent(leftPanel);
 
-        rightPanel.setBackground(new java.awt.Color(153, 0, 255));
+        rightPanel.setBackground(new java.awt.Color(255, 204, 153));
         rightPanel.setLayout(new java.awt.CardLayout());
         splitPane.setRightComponent(rightPanel);
 
@@ -101,46 +108,54 @@ public class JFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formButtonActionPerformed
-        FormPanel newFormPanel= new FormPanel(rightPanel);
+        FormPanel newFormPanel = new FormPanel(rightPanel);
         rightPanel.add(newFormPanel);
-        CardLayout layout=(CardLayout)rightPanel.getLayout();
+        CardLayout layout = (CardLayout) rightPanel.getLayout();
         layout.next(rightPanel);
     }//GEN-LAST:event_formButtonActionPerformed
 
-    private void viewButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewButtonActionPerformed
-        ViewPanel newViewPanel= new ViewPanel(newUPanel);
-        rightPanel.add(newViewPanel);
-        CardLayout layout=(CardLayout)rightPanel.getLayout();
-        layout.next(rightPanel);
-    }//GEN-LAST:event_viewButtonActionPerformed
-
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        AdminLogin newFormPanel= new AdminLogin(rightPanel);
-        rightPanel.add(newFormPanel);
-        CardLayout layout=(CardLayout)rightPanel.getLayout();
+        AdminLogin newAdminLoginPanel = new AdminLogin(rightPanel);
+        rightPanel.add(newAdminLoginPanel);
+        CardLayout layout = (CardLayout) rightPanel.getLayout();
         layout.next(rightPanel);
     }//GEN-LAST:event_loginButtonActionPerformed
-    public void setUserPanel(UserPanel upanel){
-        newUPanel=upanel;
+
+    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
+        Home newHomePanel = new Home(rightPanel);
+        rightPanel.add(newHomePanel);
+        CardLayout layout = (CardLayout) rightPanel.getLayout();
+        layout.next(rightPanel);
+    }//GEN-LAST:event_homeButtonActionPerformed
+
+    private void contactButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactButtonActionPerformed
+        Contact newContactPanel = new Contact(rightPanel);
+        rightPanel.add(newContactPanel);
+        CardLayout layout = (CardLayout) rightPanel.getLayout();
+        layout.next(rightPanel);
+    }//GEN-LAST:event_contactButtonActionPerformed
+    public void setUserPanel(UserPanel upanel) {
+        newUPanel = upanel;
     }
-    
+
     public static void main(String args[]) {
-      
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new JFrame().setVisible(true);
+
             }
         });
     }
 
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton contactButton;
     private javax.swing.JButton formButton;
+    private javax.swing.JButton homeButton;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JButton loginButton;
     private javax.swing.JPanel rightPanel;
     private javax.swing.JSplitPane splitPane;
-    public javax.swing.JButton viewButton;
     // End of variables declaration//GEN-END:variables
 }

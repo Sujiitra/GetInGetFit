@@ -1,4 +1,3 @@
-
 package ui;
 
 import java.awt.CardLayout;
@@ -10,42 +9,31 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.*;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import model.UserPanel;
 
-/**
- *
- * @author sujiitramurukeshan
- */
 public class AdminLogin extends javax.swing.JPanel {
- 
+
     private JPanel rightPanel;
+
     public AdminLogin(JPanel inPane) {
         initComponents();
-        this.rightPanel=inPane;
+        this.rightPanel = inPane;
         cCredentialsInvalid.setVisible(false);
         paintComponent(rightPanel.getGraphics());
-        
-    // Image background = Toolkit.getDefaultToolkit().createImage("./Images/exercise-nutrition.jpeg");
-    //rightPanel.drawImage(background, 0, 0, null);
     }
-    
+
     @Override
-  protected void paintComponent(Graphics g) {
-
-    super.paintComponent(g);
-         Image background = Toolkit.getDefaultToolkit().createImage("./Images/exercise-nutrition.jpeg");
-
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Image background = Toolkit.getDefaultToolkit().createImage("./Images/exercise-nutrition.jpeg");
         g.drawImage(background, 758, 688, null);
-        
-     }
+    }
 
-    private static String uid;
-    private static String pwd ;
     private static final String URL = "jdbc:oracle:thin:@localhost:1521:xe";
     private static final String USERNAME = "admin";
     private static final String PASSWORD = "admin";
- 
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -56,10 +44,10 @@ public class AdminLogin extends javax.swing.JPanel {
         cPwdLabel = new javax.swing.JLabel();
         cRoleCombo = new javax.swing.JComboBox<>();
         cLoginText = new javax.swing.JTextField();
-        cPwdText = new javax.swing.JTextField();
         cSubmitButton = new javax.swing.JButton();
         cCredentialsInvalid = new javax.swing.JLabel();
         cRoleInvalid = new javax.swing.JLabel();
+        cPwdText = new javax.swing.JPasswordField();
         fitnessTab = new javax.swing.JPanel();
         fRoleLabel = new javax.swing.JLabel();
         fLoginLabel = new javax.swing.JLabel();
@@ -69,7 +57,7 @@ public class AdminLogin extends javax.swing.JPanel {
         fRoleCombo = new javax.swing.JComboBox<>();
         fRoleInvalid = new javax.swing.JLabel();
         fLoginText = new javax.swing.JTextField();
-        fPwdText = new javax.swing.JTextField();
+        fPwdText = new javax.swing.JPasswordField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(758, 688));
@@ -118,18 +106,14 @@ public class AdminLogin extends javax.swing.JPanel {
             }
         });
 
-        cPwdText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cPwdTextActionPerformed(evt);
-            }
-        });
-
         cSubmitButton.setText("Sign In");
         cSubmitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cSubmitButtonActionPerformed(evt);
             }
         });
+
+        cPwdText.setVerifyInputWhenFocusTarget(false);
 
         javax.swing.GroupLayout challengeTabLayout = new javax.swing.GroupLayout(challengeTab);
         challengeTab.setLayout(challengeTabLayout);
@@ -148,13 +132,13 @@ public class AdminLogin extends javax.swing.JPanel {
                         .addGap(60, 60, 60)
                         .addComponent(cCredentialsInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(challengeTabLayout.createSequentialGroup()
-                        .addGroup(challengeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(challengeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cRoleCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cLoginText, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                            .addComponent(cPwdText))
+                            .addComponent(cLoginText, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
-                        .addComponent(cRoleInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(99, Short.MAX_VALUE))
+                        .addComponent(cRoleInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cPwdText, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         challengeTabLayout.setVerticalGroup(
             challengeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,15 +152,15 @@ public class AdminLogin extends javax.swing.JPanel {
                 .addGroup(challengeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cLoginLabel)
                     .addComponent(cLoginText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(34, 34, 34)
                 .addGroup(challengeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cPwdLabel)
-                    .addComponent(cPwdText, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                    .addComponent(cPwdText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
                 .addGroup(challengeTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cSubmitButton)
                     .addComponent(cCredentialsInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(393, Short.MAX_VALUE))
+                .addContainerGap(385, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Challenge", challengeTab);
@@ -223,10 +207,10 @@ public class AdminLogin extends javax.swing.JPanel {
                             .addComponent(fLoginLabel)
                             .addComponent(fPwdLabel))
                         .addGap(81, 81, 81)
-                        .addGroup(fitnessTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(fitnessTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(fRoleCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fLoginText, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fPwdText, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(fLoginText, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                            .addComponent(fPwdText))
                         .addGap(42, 42, 42)
                         .addComponent(fRoleInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(fitnessTabLayout.createSequentialGroup()
@@ -234,7 +218,7 @@ public class AdminLogin extends javax.swing.JPanel {
                         .addComponent(fSignInButton)
                         .addGap(43, 43, 43)
                         .addComponent(fSignInInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         fitnessTabLayout.setVerticalGroup(
             fitnessTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,15 +232,15 @@ public class AdminLogin extends javax.swing.JPanel {
                 .addGroup(fitnessTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fLoginLabel)
                     .addComponent(fLoginText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(fitnessTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(33, 33, 33)
+                .addGroup(fitnessTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fPwdLabel)
                     .addComponent(fPwdText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
+                .addGap(41, 41, 41)
                 .addGroup(fitnessTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fSignInButton)
                     .addComponent(fSignInInvalid, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(379, Short.MAX_VALUE))
+                .addContainerGap(371, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Fitness", fitnessTab);
@@ -293,35 +277,31 @@ public class AdminLogin extends javax.swing.JPanel {
 
     private void challengeTabKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_challengeTabKeyPressed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_challengeTabKeyPressed
 
     private void cLoginTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cLoginTextFocusGained
         // TODO add your handling code here:
         int roleCombo = cRoleCombo.getSelectedIndex();
-        if(roleCombo==-1)
-        {  
-        cRoleInvalid.setText("Please select your role");
-        cRoleInvalid.setVisible(true);
+        if (roleCombo == -1) {
+            cRoleInvalid.setText("Please select your role");
+            cRoleInvalid.setVisible(true);
+        } else {
+            cRoleInvalid.setVisible(false);
         }
-        else{
-                cRoleInvalid.setVisible(false);
-            }
-    
-        
+
+
     }//GEN-LAST:event_cLoginTextFocusGained
 
     private void cLoginTextKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cLoginTextKeyTyped
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_cLoginTextKeyTyped
 
     private void cLoginTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cLoginTextKeyReleased
         // TODO add your handling code here:
-     
-        
-      
-       
+
+
     }//GEN-LAST:event_cLoginTextKeyReleased
 
     private void cSubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cSubmitButtonActionPerformed
@@ -329,248 +309,239 @@ public class AdminLogin extends javax.swing.JPanel {
         cCheckinputs();
     }//GEN-LAST:event_cSubmitButtonActionPerformed
 
-    private void cPwdTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cPwdTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cPwdTextActionPerformed
-
     private void fLoginTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fLoginTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fLoginTextActionPerformed
 
     private void cLoginTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cLoginTextKeyPressed
         // TODO add your handling code here:
-        if (cRoleCombo.getSelectedIndex()==-1)
-        {
+        if (cRoleCombo.getSelectedIndex() == -1) {
             cRoleInvalid.setText("Please select your role");
             cRoleInvalid.setVisible(true);
-        }
-        else
+        } else {
             cRoleInvalid.setVisible(false);
-        
+        }
+
     }//GEN-LAST:event_cLoginTextKeyPressed
 
     private void fLoginTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fLoginTextKeyPressed
         // TODO add your handling code here:
-        if (fRoleCombo.getSelectedIndex()==-1)
-        {
+        if (fRoleCombo.getSelectedIndex() == -1) {
             fRoleInvalid.setText("Please select your role");
             fRoleInvalid.setVisible(true);
-        }
-        else
+        } else
             fRoleInvalid.setVisible(false);
     }//GEN-LAST:event_fLoginTextKeyPressed
 
-    public void cCheckinputs(){
-        switch(cRoleCombo.getSelectedIndex()){
-        case 0:
-        {
-        String query = "Select PASSWORD FROM CHALLENGERS WHERE EMAILID=?";
-        try (Connection conn = DriverManager.getConnection(URL, USERNAME,PASSWORD)) {
-        PreparedStatement stmt = conn.prepareStatement(query);
-        stmt.setString(1, cLoginText.getText());
-        ResultSet myRs= stmt.executeQuery(); 
+    public void cCheckinputs() {
+        UserPanel u = new UserPanel();
+        char[] p = cPwdText.getPassword();
+        String pwd = new String(p);
+        switch (cRoleCombo.getSelectedIndex()) {
+            case 0: {
+                String query = "Select PASSWORD FROM CHALLENGERS WHERE EMAILID=?";
+                try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD)) {
+                    PreparedStatement stmt = conn.prepareStatement(query);
+                    stmt.setString(1, cLoginText.getText());
+                    ResultSet myRs = stmt.executeQuery();
 
-    if(myRs.next()){   
-        boolean valid = myRs.getString(1).equals(cPwdText.getText());
-        if(!valid){
-                cCredentialsInvalid.setText("Incorrect password.");
+                    if (myRs.next()) {
+                        boolean valid = myRs.getString(1).equals(pwd);
+                        if (!valid) {
+                            cCredentialsInvalid.setText("Incorrect password.");
+                            cCredentialsInvalid.setVisible(true);
+                        } else {
+                            String q = "Select CID FROM CHALLENGERS WHERE EMAILID=?";
+                            Connection conn1 = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+                            PreparedStatement stmt1 = conn1.prepareStatement(q);
+                            stmt1.setString(1, cLoginText.getText());
+                            ResultSet res = stmt1.executeQuery();
+                            if (res.next()) {
+                                u.setPid(res.getInt(1));
+                            }
+                            CChallengerView newFormPanel = new CChallengerView(rightPanel, u);
+                            rightPanel.add(newFormPanel);
+                            CardLayout layout = (CardLayout) rightPanel.getLayout();
+                            layout.next(rightPanel);
+                        }
+                    } else {
+                        cCredentialsInvalid.setText("Please check your login id and password.");
+                        cCredentialsInvalid.setVisible(true);
+                    }
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            break;
+            case 1: {
+                String query = "Select PASSWORD FROM MOTIVATORS WHERE LOGINNAME=?";
+                try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD)) {
+                    PreparedStatement stmt = conn.prepareStatement(query);
+                    stmt.setString(1, cLoginText.getText());
+                    ResultSet myRs = stmt.executeQuery();
+
+                    if (myRs.next()) {
+                        boolean valid = myRs.getString(1).equals(pwd);
+                        if (!valid) {
+                            cCredentialsInvalid.setText("Incorrect password.");
+                            cCredentialsInvalid.setVisible(true);
+                        } else {
+
+                            CMotivatorView newFormPanel = new CMotivatorView(rightPanel);
+                            rightPanel.add(newFormPanel);
+                            CardLayout layout = (CardLayout) rightPanel.getLayout();
+                            layout.next(rightPanel);
+                        }
+                    } else {
+                        cCredentialsInvalid.setText("Please check your login id and password.");
+                        cCredentialsInvalid.setVisible(true);
+                    }
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            break;
+            case 2: {
+                String query = "Select PASSWORD FROM DIETICIAN WHERE LOGINNAME=?";
+                try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD)) {
+                    PreparedStatement stmt = conn.prepareStatement(query);
+                    stmt.setString(1, cLoginText.getText());
+                    ResultSet myRs = stmt.executeQuery();
+
+                    if (myRs.next()) {
+                        boolean valid = myRs.getString(1).equals(pwd);
+                        if (!valid) {
+                            cCredentialsInvalid.setText("Incorrect password.");
+                            cCredentialsInvalid.setVisible(true);
+                        } else {
+
+                            CDieticianView newFormPanel = new CDieticianView(rightPanel);
+                            rightPanel.add(newFormPanel);
+                            CardLayout layout = (CardLayout) rightPanel.getLayout();
+                            layout.next(rightPanel);
+                        }
+                    } else {
+                        cCredentialsInvalid.setText("Please check your login id and password.");
+                        cCredentialsInvalid.setVisible(true);
+                    }
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            default: {
+                cCredentialsInvalid.setText("Please check your login id and password.");
                 cCredentialsInvalid.setVisible(true);
-    }
-    else{
-            
-        CChallengerView newFormPanel= new CChallengerView(rightPanel);
-        rightPanel.add(newFormPanel);
-        CardLayout layout=(CardLayout)rightPanel.getLayout();
-        layout.next(rightPanel);
+            }
         }
-    }
-    else
-    {
-        cCredentialsInvalid.setText("Please check your login id and password.");
-        cCredentialsInvalid.setVisible(true);
-    }
-     conn.close();
-    } catch (SQLException e) {
-    e.printStackTrace();
-    }
-    }
-        break;
-        case 1:
-            {
-        String query = "Select PASSWORD FROM MOTIVATORS WHERE LOGINNAME=?";
-        try (Connection conn = DriverManager.getConnection(URL, USERNAME,PASSWORD)) {
-        PreparedStatement stmt = conn.prepareStatement(query);
-        stmt.setString(1, cLoginText.getText());
-        ResultSet myRs= stmt.executeQuery(); 
 
-    if(myRs.next()){   
-        boolean valid = myRs.getString(1).equals(cPwdText.getText());
-        if(!valid){
-                cCredentialsInvalid.setText("Incorrect password.");
-                cCredentialsInvalid.setVisible(true);
     }
-    else{
-            
-        CMotivatorView newFormPanel= new CMotivatorView(rightPanel);
-        rightPanel.add(newFormPanel);
-        CardLayout layout=(CardLayout)rightPanel.getLayout();
-        layout.next(rightPanel);
-        }
-    }
-    else
-    {
-        cCredentialsInvalid.setText("Please check your login id and password.");
-        cCredentialsInvalid.setVisible(true);
-    }
-     conn.close();
-    } catch (SQLException e) {
-    e.printStackTrace();
-    }
-    }
-        break;
-        case 2:
-            {
-        String query = "Select PASSWORD FROM DIETICIAN WHERE LOGINNAME=?";
-        try (Connection conn = DriverManager.getConnection(URL, USERNAME,PASSWORD)) {
-        PreparedStatement stmt = conn.prepareStatement(query);
-        stmt.setString(1, cLoginText.getText());
-        ResultSet myRs= stmt.executeQuery(); 
 
-    if(myRs.next()){   
-        boolean valid = myRs.getString(1).equals(cPwdText.getText());
-        if(!valid){
-                cCredentialsInvalid.setText("Incorrect password.");
-                cCredentialsInvalid.setVisible(true);
-    }
-    else{
-            
-        CDieticianView newFormPanel= new CDieticianView(rightPanel);
-        rightPanel.add(newFormPanel);
-        CardLayout layout=(CardLayout)rightPanel.getLayout();
-        layout.next(rightPanel);
-        }
-    }
-    else
-    {
-       cCredentialsInvalid.setText("Please check your login id and password.");
-        cCredentialsInvalid.setVisible(true);
-    }
-     conn.close();
-    } catch (SQLException e) {
-    e.printStackTrace();
-    }
-    }
-        default:{
-           cCredentialsInvalid.setText("Please check your login id and password.");
-        cCredentialsInvalid.setVisible(true);
-        }
-        }
-       
-}
-    public void fCheckinputs(){
-        switch(fRoleCombo.getSelectedIndex()){
-        case 0:
-        {
-        String query = "Select PASSWORD FROM CHALLENGERS WHERE EMAILID=?";
-        try (Connection conn = DriverManager.getConnection(URL, USERNAME,PASSWORD)) {
-        PreparedStatement stmt = conn.prepareStatement(query);
-        stmt.setString(1, fLoginText.getText());
-        ResultSet myRs= stmt.executeQuery(); 
+    public void fCheckinputs() {
+        UserPanel u = new UserPanel();
+        char[] p = fPwdText.getPassword();
+        String pwd = new String(p);
+        switch (fRoleCombo.getSelectedIndex()) {
+            case 0: {
+                String query = "Select PASSWORD FROM CHALLENGERS WHERE EMAILID=?";
+                try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD)) {
+                    PreparedStatement stmt = conn.prepareStatement(query);
+                    stmt.setString(1, fLoginText.getText());
+                    ResultSet myRs = stmt.executeQuery();
 
-    if(myRs.next()){   
-        boolean valid = myRs.getString(1).equals(fPwdText.getText());
-        if(!valid){
-                fSignInInvalid.setText("Incorrect password.");
+                    if (myRs.next()) {
+                        boolean valid = myRs.getString(1).equals(pwd);
+                        if (!valid) {
+                            fSignInInvalid.setText("Incorrect password.");
+                            fSignInInvalid.setVisible(true);
+                        } else {
+                            String q = "Select CID FROM CHALLENGERS WHERE EMAILID=?";
+                            Connection conn1 = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+                            PreparedStatement stmt1 = conn1.prepareStatement(q);
+                            stmt1.setString(1, cLoginText.getText());
+                            ResultSet res = stmt1.executeQuery();
+                            if (res.next()) {
+                                u.setPid(res.getInt(1));
+                            }
+
+                            FChallengerView newFormPanel = new FChallengerView(rightPanel,u);
+                            rightPanel.add(newFormPanel);
+                            CardLayout layout = (CardLayout) rightPanel.getLayout();
+                            layout.next(rightPanel);
+                        }
+                    } else {
+                        fSignInInvalid.setText("Please check your login id and password.");
+                        fSignInInvalid.setVisible(true);
+                    }
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            break;
+            case 1: {
+                String query = "Select PASSWORD FROM MOTIVATORS WHERE LOGINNAME=?";
+                try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD)) {
+                    PreparedStatement stmt = conn.prepareStatement(query);
+                    stmt.setString(1, fLoginText.getText());
+                    ResultSet myRs = stmt.executeQuery();
+
+                    if (myRs.next()) {
+                        boolean valid = myRs.getString(1).equals(pwd);
+                        if (!valid) {
+                            fSignInInvalid.setText("Incorrect password.");
+                            fSignInInvalid.setVisible(true);
+                        } else {
+
+                            FMotivatorView newFormPanel = new FMotivatorView(rightPanel);
+                            rightPanel.add(newFormPanel);
+                            CardLayout layout = (CardLayout) rightPanel.getLayout();
+                            layout.next(rightPanel);
+                        }
+                    } else {
+                        fSignInInvalid.setText("Please check your login id and password.");
+                        fSignInInvalid.setVisible(true);
+                    }
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            break;
+            case 2: {
+                String query = "Select PASSWORD FROM TRAINER WHERE LOGINNAME=?";
+                try (Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD)) {
+                    PreparedStatement stmt = conn.prepareStatement(query);
+                    stmt.setString(1, fLoginText.getText());
+                    ResultSet myRs = stmt.executeQuery();
+
+                    if (myRs.next()) {
+                        boolean valid = myRs.getString(1).equals(pwd);
+                        if (!valid) {
+                            fSignInInvalid.setText("Incorrect password.");
+                            fSignInInvalid.setVisible(true);
+                        } else {
+
+                            FTrainerView newFormPanel = new FTrainerView(rightPanel);
+                            rightPanel.add(newFormPanel);
+                            CardLayout layout = (CardLayout) rightPanel.getLayout();
+                            layout.next(rightPanel);
+                        }
+                    } else {
+                        fSignInInvalid.setText("Please check your login id and password.");
+                        fSignInInvalid.setVisible(true);
+                    }
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            default: {
+                fSignInInvalid.setText("Please check your login id and password.");
                 fSignInInvalid.setVisible(true);
-    }
-    else{
-            
-        FChallengerView newFormPanel= new FChallengerView(rightPanel);
-        rightPanel.add(newFormPanel);
-        CardLayout layout=(CardLayout)rightPanel.getLayout();
-        layout.next(rightPanel);
-        }
-    }
-    else
-    {
-        fSignInInvalid.setText("Please check your login id and password.");
-        fSignInInvalid.setVisible(true);
-    }
-     conn.close();
-    } catch (SQLException e) {
-    e.printStackTrace();
-    }
-    }
-        break;
-        case 1:
-            {
-        String query = "Select PASSWORD FROM MOTIVATORS WHERE LOGINNAME=?";
-        try (Connection conn = DriverManager.getConnection(URL, USERNAME,PASSWORD)) {
-        PreparedStatement stmt = conn.prepareStatement(query);
-        stmt.setString(1, fLoginText.getText());
-        ResultSet myRs= stmt.executeQuery(); 
-
-    if(myRs.next()){   
-        boolean valid = myRs.getString(1).equals(fPwdText.getText());
-        if(!valid){
-                fSignInInvalid.setText("Incorrect password.");
-                fSignInInvalid.setVisible(true);
-    }
-    else{
-            
-        FMotivatorView newFormPanel= new FMotivatorView(rightPanel);
-        rightPanel.add(newFormPanel);
-        CardLayout layout=(CardLayout)rightPanel.getLayout();
-        layout.next(rightPanel);
-        }
-    }
-    else
-    {
-        fSignInInvalid.setText("Please check your login id and password.");
-        fSignInInvalid.setVisible(true);
-    }
-     conn.close();
-    } catch (SQLException e) {
-    e.printStackTrace();
-    }
-    }
-        break;
-        case 2:
-            {
-        String query = "Select PASSWORD FROM TRAINER WHERE LOGINNAME=?";
-        try (Connection conn = DriverManager.getConnection(URL, USERNAME,PASSWORD)) {
-        PreparedStatement stmt = conn.prepareStatement(query);
-        stmt.setString(1, fLoginText.getText());
-        ResultSet myRs= stmt.executeQuery(); 
-
-    if(myRs.next()){   
-        boolean valid = myRs.getString(1).equals(fPwdText.getText());
-        if(!valid){
-                fSignInInvalid.setText("Incorrect password.");
-                fSignInInvalid.setVisible(true);
-    }
-    else{
-            
-        FTrainerView newFormPanel= new FTrainerView(rightPanel);
-        rightPanel.add(newFormPanel);
-        CardLayout layout=(CardLayout)rightPanel.getLayout();
-        layout.next(rightPanel);
-        }
-    }
-    else
-    {
-       fSignInInvalid.setText("Please check your login id and password.");
-        fSignInInvalid.setVisible(true);
-    }
-     conn.close();
-    } catch (SQLException e) {
-    e.printStackTrace();
-    }
-    }
-        default:{
-           fSignInInvalid.setText("Please check your login id and password.");
-        fSignInInvalid.setVisible(true);
-        }
+            }
         }
     }
 
@@ -579,7 +550,7 @@ public class AdminLogin extends javax.swing.JPanel {
     private javax.swing.JLabel cLoginLabel;
     private javax.swing.JTextField cLoginText;
     private javax.swing.JLabel cPwdLabel;
-    private javax.swing.JTextField cPwdText;
+    private javax.swing.JPasswordField cPwdText;
     private javax.swing.JComboBox<String> cRoleCombo;
     private javax.swing.JLabel cRoleInvalid;
     private javax.swing.JLabel cRoleLabel;
@@ -588,7 +559,7 @@ public class AdminLogin extends javax.swing.JPanel {
     private javax.swing.JLabel fLoginLabel;
     private javax.swing.JTextField fLoginText;
     private javax.swing.JLabel fPwdLabel;
-    private javax.swing.JTextField fPwdText;
+    private javax.swing.JPasswordField fPwdText;
     private javax.swing.JComboBox<String> fRoleCombo;
     private javax.swing.JLabel fRoleInvalid;
     private javax.swing.JLabel fRoleLabel;

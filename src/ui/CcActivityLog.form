@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="99" red="99" type="rgb"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="262" max="-2" attributes="0"/>
+                          <Component id="activityL" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="feelL" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="dateL" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="stepL" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="wL" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="wt" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="sessionL" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="sTL" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="calL" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jScrollPane1" min="-2" pref="337" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="calText" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="sessionTimeText" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="sessionText" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="wTimeText" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="wrkoutText" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="stepText" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="dateText" alignment="0" pref="227" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="237" max="-2" attributes="0"/>
+                          <Component id="activityUpdateButton" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="156" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="activityL" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                          <Component id="dateL" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="dateText" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="stepL" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="stepText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="wL" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="wrkoutText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="wt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="wTimeText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="sessionL" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="sessionText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="sTL" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="sessionTimeText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="calL" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="calText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="feelL" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="80" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="36" max="32767" attributes="0"/>
+                  <Component id="activityUpdateButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="activityL">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Helvetica Neue" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Enter Daily Activity Log"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="stepL">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Step Count"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="calL">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Calories Burnt:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="wL">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Type of Workout:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="dateL">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Date"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="wt">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Time Duration:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="sessionL">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Attended the Online Session:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="sTL">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Time Duration:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="feelL">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="How did you feel today?"/>
+          </Properties>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="feelText">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="com.toedter.calendar.JDateChooser" name="dateText">
+        </Component>
+        <Component class="javax.swing.JTextField" name="stepText">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="stepTextActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="wrkoutText">
+        </Component>
+        <Component class="javax.swing.JTextField" name="wTimeText">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="wTimeTextActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="sessionText">
+        </Component>
+        <Component class="javax.swing.JTextField" name="sessionTimeText">
+        </Component>
+        <Component class="javax.swing.JTextField" name="calText">
+        </Component>
+        <Component class="javax.swing.JButton" name="activityUpdateButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Update"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="activityUpdateButtonActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
